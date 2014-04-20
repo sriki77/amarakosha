@@ -1,0 +1,166 @@
+/* 
+Burnt 1.0 for OSWD
+- http://smallpark.org 
+- Last Revision: August 16th 
+- Design and Code by Anthony Yeung
+- Comments: None. 
+*/
+
+/* 
+and now onto the meat and potatoes... 
+*/
+
+/* General Configs */
+
+body {
+    font-family: Lucida Grande, Arial, Verdana, Helvetica, sans-serif;
+    line-height: 2em;
+    color: #666;
+    background-color: #FFFFFF;
+    margin-top: 4em;
+    margin-left: 4em;
+    margin-bottom: 10em;
+}
+
+img {
+    margin-bottom: 2em;
+}
+
+h1 {
+    font-family: Lucida Grande, Arial, Verdana, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1em;
+    font-weight: 900;
+}
+
+#header {
+    height: 60px;
+    /*width: 730px;*/
+    position: relative;
+}
+
+#header h1 {
+    padding-top: 20px;
+    font-size: 60px;
+    font-weight: normal;
+    color: #CC6600;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+#header h2 {
+    font-size: 20px;
+    font-weight: normal;
+    color: #666;
+    text-align: center;
+}
+
+#container {
+    background: url(dot-top.gif) top repeat-x;
+    width: 730px;
+    margin-bottom: 5em;
+}
+
+h2 {
+    color: #CCC;
+    margin-bottom: 2em;
+}
+
+.text {
+    width: 350px;
+    padding-top: 20px;
+    background: url(dot.gif) right top repeat-y;
+    padding-right: 20px;
+    margin-right: 20px;
+}
+
+#infinitum {
+    float: right;
+    width: 150px;
+    padding-top: 20px;
+    background: url(dot.gif) right top repeat-y;
+    padding-left: 20px;
+}
+
+#mightylinks {
+    padding-top: 20px;
+    float: right;
+    width: 150px;
+    background: url(dot.gif) right top repeat-y;
+    padding-right: 20px;
+}
+
+#header div {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+a {
+    color: #CC6600;
+}
+
+a:hover {
+    color: #999;
+}
+
+
+form {
+    height: 15px;
+}
+
+#header input[type="text"] {
+    border: 1px solid #CCC;
+    background-color: #FFFFFF;
+    font-size: 25px;
+    color: #666;
+}
+
+#header input[type="password"] {
+    border: 1px solid #CCC;
+    background-color: #FFFFFF;
+    font-size: 25px;
+    color: #666;
+}
+
+#header input[type="submit"] {
+    font-size: 50px;
+    color: #666;
+    width: 150px;
+    height: 150px;
+}
+
+#header select {
+    border: 1px solid #CCC;
+    background-color: #FFFFFF;
+    font-size: 25px;
+    color: #666;
+}
+
+.heading {
+    padding-top: 20px;
+    font-size: 30px;
+    font-weight: normal;
+    color: #CC6600;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.thin_table {
+    border: 1px solid #CCC;
+    color: #666;
+}
+
+.error_heading {
+    padding-top: 10px;
+    font-size: 20px;
+    font-weight: normal;
+    color: #ff0000;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.highlight {
+    font-weight: bold;
+    color: #2E2F30;
+    text-align: center;
+}

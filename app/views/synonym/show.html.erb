@@ -1,0 +1,17 @@
+<div align="center">
+  <table cellpadding="5" width="90%" border="0">
+    <tr>
+      <th align="center"><font size="+5">Synonym Details</font><br/>
+        <%= link_to 'Back', synonym_index_path %>
+        <%= link_to "Edit", edit_synonym_path(@syn) %>
+      </th>
+    </tr>
+    <tr>
+      <td align="left"><%= @syn.details %></td>
+    </tr>
+    <tr>
+      <td align="left"><%= @syn.words %></td>
+    </tr>
+  </table>
+</div>
+

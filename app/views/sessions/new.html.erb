@@ -1,0 +1,24 @@
+  <div align="center">
+    <%= form_tag login_path do %>
+        <table width="25%" class="thin_table">
+          <tr>
+            <th colspan="2" align="center">
+              <span class="heading">Log in</span>
+            </th>
+          </tr>
+          <tr>
+            <td><%= label_tag :email %></td>
+            <td><%= text_field_tag :email, params[:email] %></td>
+          </tr>
+          <tr>
+            <td><%= label_tag :password %></td>
+            <td><%= password_field_tag :password %></td>
+          </tr>
+          <tr>
+            <td align="center"><%= submit_tag "Log in" %></td>
+          </tr>
+        </table>
+    <% end %>
+  </div>
+
+

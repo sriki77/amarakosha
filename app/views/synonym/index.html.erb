@@ -1,0 +1,24 @@
+<div align="center">
+  <%= link_to "New Synonym", new_synonym_path %>
+  <table border="1" cellpadding="5" width="50%">
+    <tr>
+      <th><font size="+1">Synonym Description</font></th>
+      <th>Actions</th>
+    </tr>
+    <% @syn.each do |s| %>
+        <tr>
+          <td align="center"><%= s.details %></td>
+          <td align="center">
+            <table width="100%">
+              <tr>
+                <td align="center"><%= link_to "Edit", edit_synonym_path(s) %></td>
+                <td align="center"><%= link_to "View", synonym_path(s) %></td>
+                <td align="center"><%= link_to "Delete", synonym_path(s), :method => :delete, data: {:confirm => 'Are you sure?'} %></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+    <% end %>
+  </table>
+</div>
+

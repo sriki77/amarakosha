@@ -1,0 +1,21 @@
+language: ruby
+rvm:
+- 2.1.1
+env:
+  global:
+  - SECRET_TOKEN="$(bundle exec rake secret)"
+script:
+- RAILS_ENV=test bundle exec rake db:drop db:create db:migrate db:seed
+- bundle exec rake
+before_script:
+- psql -c 'create database amarakosha_test' -U postgres
+deploy:
+  provider: heroku
+  api_key:
+      secure: BGiXbZwSQC7150TI7EDmra593K9epHn7MqLZ7avbTKRZpUhfS/ZUFrYz7VwTTZAaIl7CH3MEDnUOoYLXIWP48sf4xthQMqscJkUzcZiYiOINSUjZyyrPmGta52VeOAC2CCJ2/Ng5rvZNaWRIy3aGt+xkF32mrXkqb+5S8XGJRzQ=
+  app: amarakosha
+  on:
+    repo: sriki77/amarakosha
+  run:
+  - rake db:migrate
+  - restart

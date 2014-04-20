@@ -1,0 +1,26 @@
+<div id="header" align="center">
+  <%= link_to 'Cancel', synonym_index_path %>
+  <%= form_for :synonym, url: synonym_index_path do |s| %>
+      <div align="center">
+        <table cellpadding="5" width="90%" border="0">
+          <tr>
+            <th align="center">
+              <font size="+5">Synonym Details</font>
+            </th>
+          </tr>
+          <tr>
+            <td align="center"><b><%= s.label :details %></b>
+              :&nbsp;&nbsp;&nbsp; <%= s.text_field :details, :size => 100 %></td>
+          </tr>
+          <tr>
+            <td align="center"><b><%= s.label :words %></b>
+              :&nbsp;&nbsp;&nbsp; <%= s.text_field :words, :size => 100 %></td>
+          </tr>
+          <tr>
+            <td align="center"> <%= s.submit %></td>
+          </tr>
+        </table>
+      </div>
+  <% end %>
+</div>
+

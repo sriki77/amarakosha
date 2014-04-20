@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Amarakosha</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div id="user_header" align="right">
+  <% if current_user %>
+      Logged in as <span class="highlight"><%= current_user.name %></span>.
+      <%= link_to "Log Out", logout_path %>
+      <%= link_to "Sign Up A New User", signup_path %>
+  <% else %>
+      <%= link_to "Log In", login_path %>
+  <% end %>
+</div>
+
+<span id="header" align="center">
+  <h1 align="center">धातुरूपाणि </h1>
+  <h2 align="center">भ्वद्यादिजुहोत्यादि: दिवादि:स्वादिरेव च |</h2>
+  <h2 align="center">तुदादिश्च रुधादिश्च तन:क्र्यादिचुरादय:||</h2>
+</span>
+
+
+<%= yield %>
+
+</body>
+</html>
