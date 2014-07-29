@@ -11,12 +11,8 @@ class UsersController < ApplicationController
 
     @user = User.new(user_params)
     if @user.save
-      p "--------------"
-      p @user
       redirect_to synonym_index_url, notice: "Thank you for signing up!"
     else
-      p "-----RENDER---------"
-      p @user
       redirect_to new_user_url
     end
   end

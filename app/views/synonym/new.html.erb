@@ -2,26 +2,28 @@
   <%= link_to 'Cancel', synonym_index_path %>
   <%= form_for :synonym, url: synonym_index_path do |s| %>
       <div align="center">
-        <table cellpadding="5" width="90%" border="0">
+        <table cellpadding="5" width="50%" border="1">
           <tr>
-            <th align="center">
-              <font size="+5">Synonym Details</font>
+            <th align="center" colspan="2">
+              <font size="+2">Synonym Details</font>
             </th>
           </tr>
           <tr>
-            <td align="center"><b>Description</b>
-              :&nbsp;&nbsp;&nbsp; <%= s.text_field :details, :size => 100 %></td>
+            <td><b>Description</b></td>
+            <td>
+               <%= s.text_area :details, :cols => 50, :rows=> 3 %></td>
           </tr>
           <tr>
-            <td align="center"><b>Words In Sholka</b>
-              :&nbsp;&nbsp;&nbsp; <%= s.text_area :words, :size => 100 %></td>
+            <td><b>Words In Sholka</b></td>
+            <td>
+              <%= s.text_area :words, :cols => 50, :rows=> 3 %></td>
           </tr>
           <tr>
-            <td align="center"><b>Sholka</b>
-              :&nbsp;&nbsp;&nbsp; <%= s.text_area :shloka, :size => 100 %></td>
+            <td><b>Sholka</b></td>
+            <td><%= s.text_area :shloka, :cols => 50, :rows=> 4%></td>
           </tr>
           <tr>
-            <td align="center"> <%= s.submit %></td>
+            <td align="center" colspan="2"><%=s.submit%></td>
           </tr>
         </table>
       </div>

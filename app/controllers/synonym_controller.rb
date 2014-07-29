@@ -45,7 +45,7 @@ class SynonymController < ApplicationController
   def destroy
     @syn= Synonym.find(params[:id])
     @syn.destroy!
-    redirect_to @syn
+    redirect_to synonym_index_url
   end
 
   private
