@@ -17,5 +17,5 @@ deploy:
   on:
     repo: sriki77/amarakosha
   run:
-  - rake db:drop db:create db:migrate db:seed
+  - rake db:migrate
   - restart
