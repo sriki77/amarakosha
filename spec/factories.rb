@@ -7,7 +7,7 @@ FactoryGirl.define do
     shloka "hello shloka"
   end
 
-  factory :users do
+  factory :users, class: User do
     name "Srikanth"
     email "a@a.com"
     password "abc123"
