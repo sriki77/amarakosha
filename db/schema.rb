@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20140420094948) do
   create_table "synonyms", force: true do |t|
     t.string   "details"
     t.text     "words"
+    t.text     "shloka"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

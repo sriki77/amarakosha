@@ -2,10 +2,12 @@ class SessionsController < ApplicationController
   def create
     user_params
     user = User.where(:email => params[:email]).first
-
+    p "------------------"
+    p user
+    p "------------------"
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      session[:user]=User.find(session[:user_id])
+      session[:users]=User.find(session[:user_id])
       redirect_to synonym_index_url
     else
       flash.now.alert = "Email or password is invalid"

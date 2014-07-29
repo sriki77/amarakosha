@@ -1,4 +1,4 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
 
   before_filter :authorize
 
@@ -7,7 +7,7 @@ class UserController < ApplicationController
   end
 
   def create
-
+    p params[:users]
     return redirect_to new_user_url unless params[:user]
 
     @user = User.new(user_params)

@@ -51,6 +51,6 @@ class SynonymController < ApplicationController
   private
 
   def synonym_params
-    params[:synonym].permit(:details, :words)
+    params[:synonym].permit(:details, :words, :shloka)
   end
 end

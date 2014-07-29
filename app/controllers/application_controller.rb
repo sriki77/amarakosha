@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    @current_user=session[:user] if session[:user_id]
+    @current_user=session[:users] if session[:user_id]
   end
 
   helper_method :current_user

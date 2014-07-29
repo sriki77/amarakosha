@@ -44,3 +44,5 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 
 gem 'strip_attributes'
 
+gem 'rails_12factor'
+

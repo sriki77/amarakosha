@@ -7,7 +7,7 @@ Amarakosha::Application.routes.draw do
   get 'signup', to: 'users#new', as: 'signup'
 
   resources :synonym
-  resources :user
+  resources :users
   resources :sessions
 
   match '*a', :to => 'errors#routing', :via => [:get, :post], as: 'error'

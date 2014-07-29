@@ -3,7 +3,7 @@ require 'spec_helper'
 describe UserController do
   before(:each) do
     usr = User.all[0]
-    session[:user]=usr
+    session[:users]=usr
     session[:user_id]=usr.id
   end
 
@@ -43,7 +43,7 @@ describe UserController do
     end
 
     it "should return 403 if users exists" do
-      user = FactoryGirl.create(:user)
+      user = FactoryGirl.create(:users)
       post :create, {:users => {:email => user.email, :name => user.name, :password => user.password, :password_confirmation => user.password_confirmation}}
       expect(response).to redirect_to(new_user_url)
       response.response_code.should==302
@@ -52,8 +52,8 @@ describe UserController do
 
   context "When new valid users" do
     it "Should create the users" do
-      user = FactoryGirl.build(:user)
-      post :create, {:user => {:email => user.email, :name => user.name, :password => user.password, :password_confirmation => user.password_confirmation}}
+      user = FactoryGirl.build(:users)
+      post :create, {:users => {:email => user.email, :name => user.name, :password => user.password, :password_confirmation => user.password_confirmation}}
       expect(response).to redirect_to(synonym_index_url)
       response.response_code.should==302
     end

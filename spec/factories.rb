@@ -4,9 +4,10 @@ FactoryGirl.define do
   factory :synonym do
     details "Greeting Words"
     words "Hello,Hola,Ni Hau, Namaskara, हरि: ॐ"
+    shloka "hello shloka"
   end
 
-  factory :user do
+  factory :users do
     name "Srikanth"
     email "a@a.com"
     password "abc123"

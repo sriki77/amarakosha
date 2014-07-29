@@ -9,12 +9,16 @@
             </th>
           </tr>
           <tr>
-            <td align="center"><b><%= s.label :details %></b>
+            <td align="center"><b>Description</b>
               :&nbsp;&nbsp;&nbsp; <%= s.text_field :details, :size => 100 %></td>
           </tr>
           <tr>
-            <td align="center"><b><%= s.label :words %></b>
-              :&nbsp;&nbsp;&nbsp; <%= s.text_field :words, :size => 100 %></td>
+            <td align="center"><b>Words In Sholka</b>
+              :&nbsp;&nbsp;&nbsp; <%= s.text_area :words, :size => 100 %></td>
+          </tr>
+          <tr>
+            <td align="center"><b>Sholka</b>
+              :&nbsp;&nbsp;&nbsp; <%= s.text_area :shloka, :size => 100 %></td>
           </tr>
           <tr>
             <td align="center"> <%= s.submit %></td>
