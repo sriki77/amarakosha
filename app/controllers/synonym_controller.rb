@@ -3,10 +3,14 @@ class SynonymController < ApplicationController
   before_filter :authorize, :except => :find
 
   def find
+    @syn=Array.new;
     params.permit(:w,:format)
     word=params[:w]
     unless word.blank?
-      @syn = @allSynonyms.find_all { |s| s.words.include? word }
+      syn_candidates = @allSynonyms.find_all { |s| s.words.include? word }
+      syn_candidates.each {|s|
+      @syn << s if s.words.split(',').any?{|w| w.strip==word.strip}
+      }
     end
     respond_to do |f|
       f.json
