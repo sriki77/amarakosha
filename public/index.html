@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>अमरकोष:</title>
+
+	<!-- Bootstrap -->
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+
+
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+      <!-- Include all compiled plugins (below), or include individual files as needed -->
+      <script src="bootstrap/js/bootstrap.min.js"></script>
+
+      
+      <script type="text/javascript">
+        $(document).ready(function(){
+
+          function hidePanels(){
+            $('#search-progress').hide();
+            $('#result-desc-row').hide();
+            $('#result-error-row').hide();
+            $('#result-warning-row').hide();
+          };
+
+          function renderDesc(data){
+            var word = $('#word').val().trim();
+           $('#result-desc').text(word);
+           $('#result-matches').empty();
+           renderMatches(word,data);
+           $('#result-desc-row').show(); 
+         }
+
+         function renderMatches(word,data){
+          $.each(data.synonyms, function(key,syn){
+            $('#result-matches').append('<ul id="result-matches" class="list-group">');
+            $('#result-matches').append('<li class="list-group-item text-success">'+ word + ' - '+ syn.details+'</li>');
+            $('#result-matches').append('<li class="list-group-item text-success">'+ syn.words+'</li>');
+            $('#result-matches').append('<li class="list-group-item text-info">' +'अमरकोष: - '+ syn.shloka+'</li>');
+            $('#result-matches').append('</ul>');
+          });
+        }
+
+       hidePanels();
+
+
+       $('#searchButton').on('click', function(event) {
+         hidePanels(); 
+         $('#search-progress').show();
+         var word = $('#word').val();
+         $.getJSON("syn.json?w="+word,
+          function(data){
+            if(data.synonyms){
+              renderDesc(data);
+            }else{
+              $('#no-word').text(word);
+              $('#result-warning-row').show();
+            }
+          }).always(function(){
+            $('#search-progress').hide();
+          }).fail(function(jqxhr, textStatus, error){
+            $('#result-error-row').show();
+          });
+        });
+
+       $(function ()  
+        { $("#about").popover({ html : true });  
+      });  
+
+
+     });
+   </script>
+ </head>
+
+
+ <body>
+  <section id="navigation-bar">
+   <div class="navbar navbar-default navbar-fixed-top">
+     <div class="container">
+       <div class="navbar-header">
+        <div class="navbar-brand">
+          अमरकोष: 
+        </div>
+      </div>
+
+      <div id="navbar-main" class="navbar-collapse collapse" style="padding-top: 17px;">
+       <div class="nav navbar-nav" align="center">
+         श्रीमद् अमरसिंहविरचितं नमलिङ्गानुशासनम् 
+       </div>
+       <ul class="nav navbar-nav navbar-right">
+        <button id="about" class="btn btn-danger" rel="popover" 
+        data-content="<p class='panel-body'><em>Concept &amp; Idea of Sri Narasimhayya Bhat,implemented by Srikanth Seshadri.</em></p>" 
+        data-placement="auto" data-container="body" data-toggle="popover"
+        data-original-title="Lakara">About</button>  
+      </ul>
+    </div>
+
+  </div>
+</div>
+</div>
+</section>
+<section id="Introduction">
+  <div class="container">
+      <div class="row">
+       <div class="jumbotron" align="center">
+        <h1>अमरकोष:</h1>
+         यस्य ज्ञानदयासिन्धोरगाधस्यानघा गुणा: | <br/> सेव्यतामक्षयो धीरा: स श्रिये चामृताय च ||
+      </div>
+    </div>
+</section>
+<section id="word-search">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3"></div>
+      <div class="col-lg-6">
+       Please enter the word
+       <div class="input-group">
+         <input class="form-control input-lg" id="word" type="text" value="स्वर्ग:" />
+         <span class="input-group-btn">
+          <button id="searchButton" class="btn btn-primary btn-lg" type="button">Search/अन्वेषणम्</button>
+        </span>
+      </div>
+      <span class="help-block"><small>Please input word in Devanagiri script using the <a href="http://www.google.co.in/inputtools/" rel="nofollow">Google Input Tools Plugin</a> or any other tools of your choice.</small>
+      </span>
+    </div>
+    <div class="col-lg-3"></div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4"> <div id="search-progress" class="progress progress-striped active">
+      <div class="progress-bar progress-bar-success" style="width: 100%"> Fetching data/आहरणम् </div>
+    </div>
+  </div>
+  <div class="col-lg-4"></div>
+</div>
+</div>
+</div>
+</section>
+<section id="word-search-result" >
+  <div class="container">
+    <div id="result-desc-row" class="row">
+      <div class="col-lg-2"></div>
+      <div class="col-lg-8">
+       <h4 class="text-info" id="result-desc"></h4>
+       <div id="result-matches"></div>
+     </div>
+     <div class="col-lg-2"></div>
+   </div>
+   
+
+
+   <div id="result-error-row" class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6" align="center">
+     <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert">×</button>
+      <strong>Oh snap!</strong> Error occurred seaching and try submitting again.
+      <br/>समस्या अभवत्,पुन: अन्वेषणीयम्|
+    </div>
+  </div>
+  <div class="col-lg-3"></div>
+</div>
+
+
+<div id="result-warning-row" class="row">
+  <div class="col-lg-3"></div>
+  <div class="col-lg-6" align="center">
+   <div class="alert alert-dismissable alert-warning">
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    <strong><span id="no-word"></span></strong> not found.If this is valid, please contact us-
+    <a href="mailto:narasimhayya@gmail.com" rel="nofollow">Sri Narasimhayya Bhat</a> or
+    <a href="mailto:sriki77@gmail.com" rel="nofollow">Srikanth Seshadri</a> ; 
+    we will be happy to add it for you.<br/>
+    पदमिदं नैव योजितम् | योजनक्रिया प्रचलन्ती अस्ति | युष्माकम् अभिप्रायं सूचनां च सगौरवं स्वीकरिष्याम:|
+  </div>
+</div>
+<div class="col-lg-3"></div>
+</div>
+
+
+<div id="spacing-row" class="row">
+  <div class="col-lg-12">&nbsp;</div>
+</div>
+
+
+</div>
+</section>
+<section id="footer">
+  <div class="page-header"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="col-lg-12">
+          <ul class="list-unstyled">
+            <li class="pull-right"><a href="#top">Back to top</a></li>
+          </ul>
+          <p>Concept &amp; Idea of <a href="mailto:narasimhayya@gmail.com" rel="nofollow">Sri Narasimhayya Bhat</a>,
+            implemented by <a href="mailto:sriki77@gmail.com" rel="nofollow">Srikanth Seshadri</a>.</p>
+            <p>Code released under the <a href="https://github.com/sriki77/lakara/blob/gh-pages/LICENSE">MIT License</a>.
+             Based on <a href="http://getbootstrap.com" rel="nofollow">Bootstrap</a>. 
+             Using <a href="http://bootswatch.com/journal/" rel="nofollow">Bootswatch Journal Theme</a>. </p>
+
+           </div>
+         </div>
+       </div>
+     </div>
+   </section>
+ </body>
+ </html>
