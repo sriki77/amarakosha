@@ -45,7 +45,6 @@
           $.each(data.synonyms, function(key,syn){
             $('#result-matches').append('<ul id="result-matches" class="list-group">');
             $('#result-matches').append('<li class="list-group-item text-success">'+ word + ' - '+ syn.details+'</li>');
-            $('#result-matches').append('<li class="list-group-item text-success">'+ syn.words+'</li>');
             $('#result-matches').append('<li class="list-group-item text-info">' +'अमरकोष: - '+ syn.shloka+'</li>');
             $('#result-matches').append('</ul>');
           });
