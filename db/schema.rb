@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140420094948) do
+ActiveRecord::Schema.define(version: 20140802043134) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20140420094948) do
     t.text     "shloka"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "summary"
   end
 
   create_table "users", force: true do |t|

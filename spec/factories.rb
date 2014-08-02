@@ -2,8 +2,9 @@ require 'factory_girl'
 
 FactoryGirl.define do
   factory :synonym do
+    summary "Greeting Words"
     details "Greeting Words"
-    words "Hello,Hola,Ni Hau, Namaskara, हरि: ॐ"
+    words "Hello,Hola:,Ni Hau, Namaskara, हरि: ॐ"
     shloka "hello shloka"
   end
 
