@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140802043134) do
+ActiveRecord::Schema.define(version: 20140806162454) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "synonyms", force: true do |t|
-    t.string   "details"
+    t.text     "details"
     t.text     "words"
     t.text     "shloka"
     t.datetime "created_at"
