@@ -46,7 +46,7 @@
             $('#result-matches').append('<ul id="result-matches" class="list-group">');
             $('#result-matches').append('<li class="list-group-item text-success">'+ syn.matched_word + ' - '+ syn.summary+'</li>');
             $('#result-matches').append('<li class="list-group-item text-default">' + syn.details+'</li>');
-            $('#result-matches').append('<li class="list-group-item text-info">' +'अमरकोष: - '+ syn.shloka+'</li>');
+            $('#result-matches').append('<li class="list-group-item text-info">' +'अमरकोष: - '+ syn.shloka.replace(/\r\n/g,"</br>")+'</li>');
             $('#result-matches').append('</ul>');
           });
         }
